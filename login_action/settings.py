@@ -130,7 +130,7 @@ SECURE_SSL_REDIRECT = True
 
 AUTH_USER_MODEL = 'registration.User'
 
-FRONTEND_URL = "https://"
+FRONTEND_URL = "https://localhost-mutanuki-6.paiza-user-free.cloud:8000/"
 
 ANYMAIL = {
     "MAILGUN_API_KEY": "07acd0e3b492b4316342095995057715-afce6020-2cc8ddd9",
