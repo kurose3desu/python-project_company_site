@@ -2,6 +2,7 @@
 忘れたとき用の仕様
 cd login_action
 python manage.py migrate
+python manage.py createsuperuser
 python manage.py runserver
 
 pip install "django-anymail[mailgun]"
