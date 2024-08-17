@@ -6,6 +6,8 @@ from django.views.generic import TemplateView
 
 from registration import views
 
+from blog import urls
+
 index_view = TemplateView.as_view(template_name="registration/index.html")
 
 urlpatterns = [
@@ -18,4 +20,5 @@ urlpatterns = [
     path('', include("django.contrib.auth.urls")),
     path("signup/", views.SignUpView.as_view(), name="signup"),
     path('activate/<uidb64>/<token>/', views.ActivateView.as_view(), name='activate'),
+    path('blog', include("blog.urls")),
 ]

@@ -3,6 +3,7 @@
 <h2>会員ページ</h2>
 <p>{{ user }}さん、こんにちは！</p>
 
+<p><a href="{% url 'blog:index' %}">社内掲示板</a></p>
 <p><a href="{% url 'logout' %}">ログアウト</a></p>
 <p><a href="{% url 'password_change' %}">パスワード変更</a></p>
 <p><a href="{% url 'password_reset' %}">パスワードを忘れた場合</a></p>
