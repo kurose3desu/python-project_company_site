@@ -1,2 +1,5 @@
-django
+django==3.2.25
 gunicorn
+dj-database-url
+python-dotenv
+psycopg2-binary
