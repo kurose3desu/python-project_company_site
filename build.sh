@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # exit on error
-sudo chmod +x file.sh
+#sudo chmod +x file.sh
 set -o errexit
 
 
