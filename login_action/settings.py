@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'anymail',
     'blog' ,
 ]
 
@@ -76,13 +75,15 @@ WSGI_APPLICATION = 'login_action.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+import dj_database_url
+from dotenv import (
+    find_dotenv,
+    load_dotenv,
+)
+load_dotenv(find_dotenv())
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': dj_database_url.config(conn_max_age=600),
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -133,10 +134,17 @@ AUTH_USER_MODEL = 'registration.User'
 
 FRONTEND_URL = "https://localhost-mutanuki-6.paiza-user-free.cloud:8000/"
 
-ANYMAIL = {
-    "MAILGUN_API_KEY": "07acd0e3b492b4316342095995057715-afce6020-2cc8ddd9",
-    "MAILGUN_SENDER_DOMAIN": 'sandboxda625c660ce840bd9cad4a679787cf2f.mailgun.org',
-}
-EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
-DEFAULT_FROM_EMAIL = "kurose@example.com"
-SERVER_EMAIL = "server@example.com"
+"""ANYMAIL = {
+    "MAILTRAP_API_KEY": "566e00e48b389a4bb0b16ce5d9fbdef0",
+    "MAILTRAP_SENDER_DOMAIN": 'sandbox.smtp.mailtrap.io.',
+}"""
+#EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
+#DEFAULT_FROM_EMAIL = "kurose@example.com"
+#SERVER_EMAIL = "server@example.com"
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '9657c85f50caa4'
+EMAIL_HOST_PASSWORD = '28be001b0a6450'
+EMAIL_PORT = '2525'
+EMAIL_USE_TLS = True
